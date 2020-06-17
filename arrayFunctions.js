@@ -1,60 +1,63 @@
-/**
- * getOdds(numbers):
- * - receives an array of numbers called `numbers`
- * - filters the `numbers` array in order to...
- * - returns an array of only ODD numbers.
- *
- * e.g.
- * getOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]) -> [1, 3, 5, 7, 9]
- * getOdds([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [11, 35, 601, 777, 999]
- */
+//let numbersUpdated = [];
 function getOdds(numbers) {
-  // Your code here
+  let numbersUpdated = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 !== 0) {
+      numbersUpdated.push(numbers[i]);
+    }
+  }
+  return numbersUpdated;
 }
+getOdds([4, 2, 5, 3]);
+/*console.log(numbersUpdated);*/
 
-/**
- * getEvens(numbers):
- * - receives an array of numbers called `numbers`
- * - filters the `numbers` array in order to...
- * - returns an array of only EVEN numbers.
- *
- * e.g.
- * getEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]) -> [2, 4, 6, 8]
- * getEvens([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [52, 14, 56, 888]
- */
-function getEvens(numbers) {
-  // Your code here
+//===============================================================//
+
+//let numbersUpdated2 = [];
+function getEvens(numbers2) {
+  let numbersUpdated2 = [];
+  for (let i = 0; i < numbers2.length; i++) {
+    if (numbers2[i] % 2 === 0) {
+      numbersUpdated2.push(numbers2[i]);
+    }
+  }
+  return numbersUpdated2;
 }
+getEvens([4, 2, 5, 3]);
+/*console.log(numbersUpdated2);*/
+//===============================================================//
 
-/**
- * getDuplicateCount(x, numbers):
- * - receives a number `x`, and an array of numbers called `numbers`
- * - returns the number of times `x` occurs in `numbers`.
- *
- * e.g.
- * getDuplicateCount(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13]) -> 4
- * getDuplicateCount(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52]) -> 3
- */
-function getDuplicateCount(x, numbers) {
-  // Your code here
+//let count = 0;
+function getDuplicateCount(x, numbers3) {
+  let count = 0;
+  for (let i = 0; i < numbers3.length; i++) {
+    if (numbers3[i] === x) {
+      count++;
+    }
+  }
+  return count;
 }
+getDuplicateCount(7, [4, 5, , 5, 2, 5, 3]);
+/*console.log(count);*/
 
-/**
- * youGottaCalmDown(s):
- * - receives a string `s`
- * - returns the string `s` with at most one exclamation mark (!) at the end.
- *
- * e.g.
- * youGottaCalmDown("HI!!!!!!!!!!") -> "HI!"
- * youGottaCalmDown("Taylor Schwifting!!!!!!!!!!!") -> "Taylor Shwifting!"
- * youGottaCalmDown("Hellooooo") -> "Hellooooo"
- *
- * Hint:
- * - Use string method .slice()
- * - Use string method .endsWith()
- */
+//===============================================================//
+
 function youGottaCalmDown(s) {
-  // Your code here
+  let newS = Array.from(s);
+  let count2 = 0;
+  for (let i = newS.length - 1; i > 0; i--) {
+    if (newS[i] === "!") {
+      count2++;
+      if (count2 > 1) {
+        newS.pop(s[i]);
+      }
+    }
+  }
+  let s2 = newS.join("");
+  return s2;
 }
+
+youGottaCalmDown("hello!");
+/*console.log(s2);*/
 
 module.exports = { getOdds, getEvens, getDuplicateCount, youGottaCalmDown };
